@@ -1,0 +1,33 @@
+.message-item {
+  display: flex;
+  margin: 8px auto;
+}
+
+.message-body {
+  flex: 1;
+  border-radius: 4px;
+  padding: 8px 12px;
+  word-break: break-word;
+  color: white;
+}
+
+.my-message {
+  background-color: rgb(0, 132, 255);
+}
+
+.received-message {
+  background-color: #3f4042;
+}
+
+.message-avatar-container {
+  align-self: flex-end;
+  margin: 0px 8px;
+}
+
+.message-avatar {
+  vertical-align: middle;
+  border-radius: 50%;
+
+  height: 28px;
+  width: 28px;
+}
