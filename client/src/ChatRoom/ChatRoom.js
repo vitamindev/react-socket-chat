@@ -6,11 +6,15 @@ import ChatMessage from "../ChatMessage/ChatMessage";
 import useTyping from "../useTyping";
 import NewMessageForm from "../NewMessageForm/NewMessageForm";
 import TypingMessage from "../TypingMessage/TypingMessage";
+import Users from "../Users/Users";
+import UserAvatar from "../UserAvatar/UserAvatar";
 
 const ChatRoom = (props) => {
   const { roomId } = props.match.params;
   const {
     messages,
+    user,
+    users,
     typingUsers,
     sendMessage,
     startTypingMessage,
@@ -18,7 +22,7 @@ const ChatRoom = (props) => {
   } = useChat(roomId);
   const [newMessage, setNewMessage] = useState("");
 
-  const { isTyping, startTyping, stopTyping } = useTyping();
+  const { isTyping, startTyping, stopTyping, cancelTyping } = useTyping();
 
   const handleNewMessageChange = (event) => {
     setNewMessage(event.target.value);
@@ -26,6 +30,7 @@ const ChatRoom = (props) => {
 
   const handleSendMessage = (event) => {
     event.preventDefault();
+    cancelTyping();
     sendMessage(newMessage);
     setNewMessage("");
   };
@@ -37,7 +42,11 @@ const ChatRoom = (props) => {
 
   return (
     <div className="chat-room-container">
-      <h1 className="room-name">Room: {roomId}</h1>
+      <div className="chat-room-top-bar">
+        <h1 className="room-name">Room: {roomId}</h1>
+        {user && <UserAvatar user={user}></UserAvatar>}
+      </div>
+      <Users users={users}></Users>
       <div className="messages-container">
         <ol className="messages-list">
           {messages.map((message, i) => (

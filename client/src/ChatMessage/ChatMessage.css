@@ -3,20 +3,39 @@
   margin: 8px auto;
 }
 
+.my-message {
+  justify-content: flex-end;
+}
+
+.received-message {
+  justify-content: flex-start;
+}
+
+.message-body-container {
+  max-width: 60%;
+}
+
 .message-body {
   flex: 1;
   border-radius: 4px;
   padding: 8px 12px;
   word-break: break-word;
+}
+
+.message-user-name {
+  font-size: 0.75rem;
+  padding-left: 12px;
+  color: rgb(138, 141, 145);
+}
+
+.my-message .message-body {
+  background-color: rgb(0, 132, 255);
   color: white;
 }
 
-.my-message {
-  background-color: rgb(0, 132, 255);
-}
-
-.received-message {
-  background-color: #3f4042;
+.received-message .message-body {
+  background-color: rgb(228, 230, 235);
+  color: rgb(5, 5, 5);
 }
 
 .message-avatar-container {

@@ -15,6 +15,10 @@ const useTyping = () => {
     setIsKeyPressed(false);
   };
 
+  const cancelTyping = () => {
+    setCountdown(0);
+  };
+
   useEffect(() => {
     let interval;
     if (!isKeyPressed) {
@@ -32,7 +36,7 @@ const useTyping = () => {
     return () => clearInterval(interval);
   }, [isKeyPressed, countdown]);
 
-  return { isTyping, startTyping, stopTyping };
+  return { isTyping, startTyping, stopTyping, cancelTyping };
 };
 
 export default useTyping;

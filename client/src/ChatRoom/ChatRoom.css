@@ -9,8 +9,13 @@
   margin: 16px;
 }
 
-.room-name {
-  margin-top: 0;
+.chat-room-top-bar {
+  display: flex;
+  align-items: center;
+}
+
+.chat-room-top-bar h1 {
+  flex: 1;
 }
 
 .messages-container {
